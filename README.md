@@ -1,7 +1,5 @@
 # column-family-database
 
-# columnfamily
-
 Cassandra is a free and open-source, distributed, wide-column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
 
 First, let's create a keyspace (database) for our online shopping platform:
