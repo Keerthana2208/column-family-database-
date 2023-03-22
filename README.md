@@ -12,7 +12,7 @@ Syntax for creating table
 -------------------------
 Now, let's create a table for customer data:
 
-                CREATE TABLE customers (
+                cqlsh:shopping>CREATE TABLE customers (
                 customer_id uuid,
                 name text,
                 email text,
@@ -20,6 +20,7 @@ Now, let's create a table for customer data:
                 address text,
                 PRIMARY KEY (customer_id)
                 );
+                
                 
                 cqlsh:shopping>CREATE TABLE products (
                 product p_id,
@@ -33,7 +34,9 @@ Insert Operation
 ----------------
 To insert a new customer:
 
-         INSERT INTO customers (customer_id, name, email, address, phone_number, registration_date) VALUES ('1', 'John Doe', 'john.doe@example.com', '123 Main St',              '555-555-55');
+         cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES ('1', 'John Doe', 'john.doe@example.com', '123 Main St');
+         
+         
          
          cqlsh:shopping>INSERT INTO products (product,name,prize) VALUES (11,'laptop','125000');
 
