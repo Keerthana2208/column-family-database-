@@ -1,0 +1,112 @@
+#creating Table
+
+cqlsh:shopping>CREATE TABLE customers (
+  customer_id uuid,
+  name text,
+  email text,
+  address text,
+  PRIMARY KEY(customer_id)
+);
+
+#inserting values
+
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (101, 'Abhi', 'Abhi@gmail.com', '123 Main St');
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (102, 'Keerthi', 'Keerthi@gmail.com', 'Agraharam');
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (103, 'Suba','Suba@gmail.com', 'Erode');
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (104, 'Revathi','Revathi@gmail.com', 'Chennai');
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (105, 'Sumathi','Sumathi@gmail.com', 'Madurai');
+cqlsh:shopping>INSERT INTO customers (customer_id, name, email, address) VALUES (105, 'Anu','Anu@gmail.com', 'Salem');
+
+(6 rows)
+
+#displaying values
+
+
+cqlsh:shopping>SELECT * FROM customers;
+
+
+customer_id | name    |   email              |  address            | 
+--------------------------------------------------------------------
+ 101        | Abhi    |  Abhi@gmail.com      |   123 Main St       |
+ 102        | Keerthi |  Keerthi@gmail.com   |   Agraharam         |   
+ 103        | Suba    |  Suba@gmail.com      |   Erode             |    
+ 104        | Revathi |  Revathi@gmail.com   |   Chennai           | 
+ 105        | Sumathi |  Sumathi@gmail.com   |   Madurai           |      
+ 106        | Anu     |  Anu@gmail.com       |   Salem             |   
+
+(6 rows)
+
+cqlsh:shopping>CREATE TABLE products (
+product p_id,
+product name text,
+product price decimal
+);
+
+#inserting values
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (11,'laptop','125000');
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (12,'headset','1500');
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (13,'iphone','93000');
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (14,'speaker','75000');
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (15,'watch','3000');
+cqlsh:shopping>INSERT INTO products (product,name,price) VALUES (16,'powerbank','2500');
+
+(6 rows)
+
+#displaying values
+
+
+cqlsh:shopping>SELECT * FROM products;
+
+product_id  | product_name | product_prize  |
+---------------------------------------------
+    11      |   laptop     |  125000        |
+    12      |   headset    |  1500          |
+    13      |   iphone     |  93000         |
+    14      |   speaker    |  75000         |
+    15      |   watch      |  3000          |
+    16      |   powerbank  |  2500          |
+
+(6 rows)
+
+
+#delete values
+
+cqlsh:shopping>DELETE FROM customers WHERE customer_id = '106';
+
+id        | name    |   email              |  address            | 
+------------------------------------------------------------------
+ 106      | Anu     |  Anu@gmail.com       |   Salem             |   
+
+(1 row)
+
+#update values
+
+cqlsh:shopping>UPDATE customers SET phone_number = '9253662464' WHERE customer_id = '101';  
+ 
+id        | name    |   email              |  address            | phone_number  |
+---------------------------------------------------------------------------------
+ 101      | Abhi    |  Abhi@gmail.com      |   123 Main St       |  9253662464   |
+
+(1 row)
+
+#Search operation
+
+cqlsh:shopping>SELECT * From products WHERE customer_id='103';
+
+customer_id | name    |   email              |  address            | 
+--------------------------------------------------------------------
+103        | Suba    |  Suba@gmail.com      |   Erode             | 
+
+
+cqlsh:shopping>SELECT * FROM customers;
+
+
+id        | name    |   email              |  address            | 
+------------------------------------------------------------------
+ 101      | Abhi    |  Abhi@gmail.com      |   123 Main St       |
+ 102      | Keerthi |  Keerthi@gmail.com   |   Agraharam         |   
+ 103      | Suba    |  Suba@gmail.com      |   Erode             |    
+ 104      | Revathi |  Revathi@gmail.com   |   Chennai           | 
+ 105      | Sumathi |  Sumathi@gmail.com   |   Madurai           |
+
+(5 rows)
